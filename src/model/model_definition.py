@@ -1,6 +1,13 @@
 import torch
 from torch import nn
-
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+nltk.download('stopwords')
+nltk.download('wordnet')
+stop_words=set(stopwords.words('english'))
+lemmatizer= WordNetLemmatizer()
 class NNModel(nn.Module):
     def __init__(self, input_features, hidden_unit=8):
         super().__init__()
